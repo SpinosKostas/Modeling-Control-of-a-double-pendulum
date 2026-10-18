@@ -15,7 +15,7 @@ The animation shows the swing-up, the hold on top, two short pushes (blue pendul
 
 | File | Description |
 |---|---|
-| `Question3_final.ipynb` | The full pipeline: model, trajectory optimization, TVLQR, hold controller, experiments, animation |
+| `Double_pendulum.ipynb` | The full pipeline: model, trajectory optimization, TVLQR, hold controller, experiments, animation |
 | `pendulum_stabilization_disturbance.gif` | Preview of the final animation (the notebook regenerates it) |
 
 ## Model
@@ -75,18 +75,10 @@ pip install jax jaxlib numpy scipy matplotlib notebook pillow
 Then open the notebook and run all cells:
 
 ```bash
-jupyter notebook Question3_final.ipynb
+jupyter notebook Double_pendulum.ipynb
 ```
 
 The animation is saved as `pendulum_stabilization_disturbance.gif` and also shown inline. Set `INLINE = False` in the last cell to skip the inline player, which makes the notebook file large (several MB).
-
-## Limitations
-
-- Results are from simulation with **no model mismatch**: the controller is designed on the same model that is simulated. Mass or length errors, joint friction, and actuator delay are not modeled.
-- Disturbance rejection is **empirical, not guaranteed**. With a ±10 N·m torque limit, a large enough or long enough disturbance will still make the pendulum fall.
-- After the trajectory ends, the hold controller uses the state error without angle wrapping. After a very large push it may unwind several full turns to return to exactly `q1 = π`, which would not be acceptable for joints with cables or travel limits.
-- The optimized swing-up folds the second link strongly; add a bound on `q2` in the optimizer if that is not acceptable for your hardware.
-- The controller runs at 20 Hz on exact state measurements (plus the optional Gaussian noise).
 
 ## Possible extensions
 
@@ -97,4 +89,5 @@ The animation is saved as `pendulum_stabilization_disturbance.gif` and also show
 
 ## License
 
-Add a license of your choice (for example MIT) before publishing.
+Spinos Konstantinos
+University of Patras - the project can be used freely and treated as open-source.
