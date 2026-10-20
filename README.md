@@ -86,6 +86,7 @@ The animation is saved as `pendulum_stabilization_disturbance.gif` and also show
 - Bounds on `q2` or on the joint travel in the trajectory optimization
 - A region-of-attraction estimate for the hold controller (for example by sampling or sums-of-squares methods)
 - Disturbance observer or adaptive terms for slowly varying loads
+- **Last but no least** : Real-time implementation (coming soon) 
 
 ## License
 
